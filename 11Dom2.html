@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="js/dom2.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -17,11 +18,21 @@
         <label for="edad">Edad</label>
         <input type="number" name="edad" id="edad" min="0" max="150">
         <br>
+        <label for="genero">Género</label>
+        <select name="genero" id="genero">
+            <option value="">-- Seleccione una opción --</option>
+            <option value="F">Femenino</option>
+            <option value="M">Masculino</option>
+            <option value="O">Otros</option>
+        </select>
+        <br>
         <input type="reset" value="Limpiar datos">
         <input type="button" value="Enviar datos" id="botonEjecuta">
     </form>
     <p id="actual">RESULTADO: </p>
     <p id="resultado">RESULTADO: </p>
+
+    <img src="" alt="" id="imagenGenero">
 </body>
 
 </html>

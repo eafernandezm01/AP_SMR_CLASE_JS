@@ -1,20 +1,53 @@
 //Cuando se cargue la pestaña
 window.addEventListener("load", inicial);
 window.addEventListener("load", establecerFecha);
+window.addEventListener("load", cambioGenero);
+
+function cambioGenero(evento) {
+    const genero = document.getElementById("genero");
+    if (genero != null) {
+        genero.addEventListener("change", actualizarImagen);
+    }
+}
+
+function actualizarImagen(evento) {
+    console.log("Elemento que ha lanzado el evento", evento);
+    const seleccionado = evento.target.value;
+    let nombreImagen="";
+    switch (seleccionado) {
+        case "F":
+            nombreImagen = "img/mujer.png";
+            break;
+        case "M":
+            nombreImagen = "img/hombre.png";
+            break;
+        case "O":
+            nombreImagen = "img/otros.png";
+            break;
+        default:
+            nombreImagen = "img/sin-imagen.png"
+            break;
+    }
+
+    const imagenGenero = document.getElementById("imagenGenero");
+    if (imagenGenero!=null){
+        imagenGenero.src = nombreImagen;
+    }
+}
+
 
 function establecerFecha(params) {
- 
+
     //1 obtener el elemento html
     const parrafoFecha = document.getElementById("fecha");
     //2 comprobar que exista el elemento
     if (parrafoFecha != null) {
-
         //Ejecutar continuamente cada X tiempo
         setInterval(() => {
-           let fechaActual = new Date();
-        parrafoFecha.innerHTML = fechaActual.toLocaleString();
+            let fechaActual = new Date();
+            parrafoFecha.innerHTML = fechaActual.toLocaleString();
         }
-        , 1000);  //1 segundo = 1000 ms
+            , 1000);  //1 segundo = 1000 ms
     }
 
 }
@@ -56,16 +89,12 @@ function recuperarDatos(params) {
 
             actual.innerHTML = actual.innerHTML + "<br>"
                 + nombreUsuario.value + " tiene " + edadUsuario.value + " " + anyio +
-                " cuando pase 18 años";
+                " " + anyio;
 
             resultado.innerHTML = resultado.innerHTML + "<br>"
                 + nombreUsuario.value + " tendrá " + dentro18 + " años" +
                 " cuando pase 18 años";
 
-
         }
     }
-
-
-
 }
