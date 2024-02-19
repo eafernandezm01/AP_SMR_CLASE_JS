@@ -1,4 +1,6 @@
 //Cuando se cargue la pestaña
+console.log ("HOLA");
+
 window.addEventListener("load", inicial);
 window.addEventListener("load", establecerFecha);
 window.addEventListener("load", cambioGenero);
