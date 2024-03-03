@@ -45,7 +45,15 @@ function enviarDatos(params) {
         return false;
     } 
 
-    calcularMedia (numNota);
+    let media = calcularMedia (numNota);
+    mostrarMedia (media);
+} 
+
+function mostrarMedia(media) {
+    //<p id="parrafoMedia" class=""   >    </p>
+    let parrafoMedia = document.getElementById ("parrafoMedia");
+    parrafoMedia.innerHTML = media;
+    parrafoMedia.setAttribute ("class","media rojo");
 }
 
 
@@ -53,6 +61,16 @@ function calcularMedia(pNumNota) {
     sumaNotas = sumaNotas + pNumNota;
     totalNotas = totalNotas + 1;
     let media = sumaNotas/totalNotas;
+    return media;
+}
 
-    
+
+// funcion que calcule si un numero pasado por parámetro es par
+function esPar(n) {
+    if ( n % 2 === 0 ) {
+        return true;
+    }
+    else {
+        return false;
+    }
 }
